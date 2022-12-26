@@ -24,48 +24,108 @@
       </p>
     </div>
   </div>
-  <div class="container mb-5 ">
+  <div class="container mb-5">
     <div class="row ps-4">
-        <div class="col-md-6 ">
-            <form >
-                <div class="mb-2">
-                    <input name="contactName" [(ngModel)]="contactName" type="text" placeholder="Name" class="form-control">
-                </div>
-                <div class="mb-2">
-                    <input type="text" placeholder="Photo URL" class="form-control">
-                </div>
-                <div class="mb-2">
-                    <input type="text" placeholder="Email ID" class="form-control">
-                </div>
-                <div class="mb-2">
-                    <input type="text" placeholder="Mobile Number" class="form-control">
-                </div>
-                <div class="mb-2">
-                    <input type="text" placeholder="Company" class="form-control">
-                </div>
-                <div class="mb-2">
-                    <input type="text" placeholder="Title" class="form-control">
-                </div>
-                <div class="mb-2">
-                    <select name="" class="form-control" id="" >
-                        <option value="" selected hidden disabled>Select A Group</option>
-                        <option value="" *ngFor="let group of allgroups">{{group.name}}</option>
-                     
-                    </select>
-                </div>
-                <div class="mb-2">
-                    <input (click)="addContact()" type="button" placeholder="Title" class="btn btn-success" value="Create">
-                    <a routerLink="/contacts/admin" class="btn btn-warning ms-2">Close</a>
-                </div>
-            </form>
-        </div>
-        <div class="col-md-4">
-            <img
-                      src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT9vJ3zs9BbAVVbn0PwfGQrRwnP9oSfiTfTFw&usqp=CAU"
-                      alt=""
-                      class="contact-image m-2"
-                    />
-        </div>
+      <div class="col-md-6">
+        <form>
+          <div class="mb-2">
+            <input
+              name="contactName"
+              [(ngModel)]="contact.name"
+              type="text"
+              placeholder="Name"
+              class="form-control"
+            />
+          </div>
+          <div class="mb-2">
+            <input
+              name="id"
+              [(ngModel)]="contact.id"
+              type="text"
+              placeholder="Contact Id"
+              class="form-control"
+            />
+          </div>
+          <div class="mb-2">
+            <input
+              name="photo"
+              [(ngModel)]="contact.photo"
+              type="text"
+              placeholder="Photo URL"
+              class="form-control"
+            />
+          </div>
+          <div class="mb-2">
+            <input
+              name="email"
+              [(ngModel)]="contact.email"
+              type="text"
+              placeholder="Email ID"
+              class="form-control"
+            />
+          </div>
+          <div class="mb-2">
+            <input
+              name="mobile"
+              [(ngModel)]="contact.mobile"
+              type="text"
+              placeholder="Mobile Number"
+              class="form-control"
+            />
+          </div>
+          <div class="mb-2">
+            <input
+              name="company"
+              [(ngModel)]="contact.company"
+              type="text"
+              placeholder="Company"
+              class="form-control"
+            />
+          </div>
+          <div class="mb-2">
+            <input
+              name="title"
+              [(ngModel)]="contact.title"
+              type="text"
+              placeholder="Title"
+              class="form-control"
+            />
+          </div>
+          <div class="mb-2">
+            <select
+              name="group"
+              [(ngModel)]="contact.groupId"
+              class="form-control"
+              id=""
+            >
+              <option value="" selected hidden disabled>Select a group</option>
+              <option value="{{ group.id }}" *ngFor="let group of allgroups">
+                {{ group.name }}
+              </option>
+            </select>
+          </div>
+          <div class="mb-2">
+            <input
+              (click)="addContact()"
+              type="button"
+              placeholder="Title"
+              class="btn btn-success"
+              value="Create"
+            />
+            <a routerLink="/contacts/admin" class="btn btn-warning ms-2"
+              >Close</a
+            >
+          </div>
+        </form>
+      </div>
+      <div class="col-md-4">
+        <img
+          [src]="contact.photo"
+          alt=""
+          class="contact-image m-2"
+          height="150px"
+        />
+      </div>
     </div>
   </div>
 </div>
