@@ -2,6 +2,7 @@ import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { MyContact } from 'src/models/myContacts';
+import { MyGroup } from 'src/models/myGroup';
 
 @Injectable({
   providedIn: 'root'
@@ -35,5 +36,9 @@ export class ApiService {
   //function for deleting a contact
   deleteContact(contactId:any){
    return this.http.delete(`${this.baseUrl}/${contactId}`)
+  }
+  //function for update contact
+  updateContact(contactId:string,contactBody:any){
+   return this.http.put(`${this.baseUrl}/${contactId}`,contactBody)
   }
 }
